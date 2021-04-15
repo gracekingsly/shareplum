@@ -528,8 +528,10 @@ class _List365(_List2007):
         headers = {'Accept': 'application/json;odata=verbose',
                    'Content-Type': 'application/json;odata=verbose',
                    'X-RequestDigest': self.contextinfo['FormDigestValue']}
-
-        response = post(self._session, url=url, headers=headers, data=body, timeout=self.timeout)
+        
+        # original:
+        # response = post(self._session, url=url, headers=headers, data=body, timeout=self.timeout)
+        response = self._session.post(url=url, headers=headers, data=body, timeout=self.timeout)
         return response.json()
 
     @property
